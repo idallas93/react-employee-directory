@@ -4,9 +4,8 @@ import "./Navbar.css"
 function Navbar() {
     return(
         <nav className="navbar navbar-expand-lg navbar-light">
-            T
                   <div className="search-area col-4">
-                      THIS IS A COLUMN
+                      Employee Directory
                   </div>
         </nav>
     )

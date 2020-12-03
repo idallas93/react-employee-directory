@@ -12,17 +12,17 @@ const EmployeeTable = () => {
       
     },[])
 
-    const Tile =({first, last, title}) => {
+    const Tile =({picture, first, last, title, location, phone}) => {
         return(
             <div>
-                <h1>{`${title}. ${first} ${last}`}</h1>
+                <h1>{`${picture} ${title} ${first} ${last}`}</h1>
             </div>
         )
     }
 
     const userMap = users.map(function(el, index) {
         return (
-            <Tile key={index} first={el.name.first} last={el.name.last} title={el.name.title} />
+            <Tile key={index} picture={el.picture.thumbnail} first={el.name.first} last={el.name.last} title={el.name.title} />
         )
     })
 
