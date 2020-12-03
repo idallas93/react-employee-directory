@@ -1,6 +1,6 @@
 # React-Employee-Directory 
 
-** View working app here ***
+** View working app here **
 [Deployed Link](https://react-employee-directory-idal.herokuapp.com/)
 
 ## Description 
