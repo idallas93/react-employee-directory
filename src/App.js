@@ -4,45 +4,55 @@ import Nav from "./components/Nav";
 import EmployeeTable from "./components/EmployeeTable";
 import SearchForm from "./components/SearchForm/SearchForm";
 import axios from "axios";
+import SortButtons from "./components/SortButtons/SortButtons";
 
 function App() {
   const [search, setSearch] = useState("");
-  // set from state
+
   const [users, setUsers] = useState([]);
-  // list copy to filter
-  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState(null);
+  const [sortByLastName, setSortByLastName] = useState(false);
+  const [sortByTitle, setSortByTitle] = useState(false);
+
 
   useEffect(() => {
     axios.get(`https://randomuser.me/api/?results=20`).then((response) => {
       setUsers(response.data.results);
-      setFilteredUsers(response.data.results);
     });
   }, []);
-  // use effect to listen to the change of the effect
-
-  // function that will set the search form
 
   const handleInputChange = (event) => {
-    // setFilteredUsers(users);
-    console.log(event.target.value);
-    setSearch(event.target.value);
-    const filtered = users.filter((user) => {
-      console.log(user);
 
-      return (user.name.title + " " + user.name.first + " " + user.name.last).indexOf(event.target.value) >= 0;
-    });
-    console.log(filtered)
-    // filteredUsers.filter(user => user.indexOf(event.target.value))
-    setFilteredUsers(filtered);
+    setFilteredUsers(event.target.value);
+
   };
 
-  // take filter, sort it and assign it 
+let allUsers = users
 
+if (filteredUsers != null) {
+  allUsers = users.filter((user) => {
+    return (user.name.title + " " + user.name.first + " " + user.name.last).indexOf(filteredUsers) >= 0;
+  });
+  console.log()
+}
+
+if (sortByLastName === true) {
+  allUsers = allUsers.sort((a,b) => {
+    console.log(a,b)
+    return (a.name.last> b.name.last) ? 1 : ((b.name.last > a.name.last) ? -1 : 0)}); 
+}
+
+if (sortByTitle === true) {
+  allUsers = allUsers.sort((a,b) => {
+    console.log(a,b)
+    return (a.name.title> b.name.title) ? 1 : ((b.name.title > a.name.title) ? -1 : 0)}); 
+}
   return (
     <div className="App">
       <Nav />
       <SearchForm handleInputChange={handleInputChange} />
-      <EmployeeTable filteredUsers={filteredUsers} />
+      <SortButtons setSortByLastName={setSortByLastName} setSortByTitle={setSortByTitle}/>
+      <EmployeeTable users={allUsers}/>
     </div>
   );
 }

@@ -16,9 +16,6 @@ const SearchForm = (props) => {
           placeholder="Type name of employee to search directory"
           id="term"
         />
-        <button type="submit"> Sort by last name </button>
-        <button type="submit"> Sort by title </button>
-
       </div>
     </form>
   );
