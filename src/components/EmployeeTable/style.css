@@ -5,3 +5,10 @@
 /* .card-img{
     
 } */
+img{
+   width: "5rem";
+   height: "5rem";
+   display: "block";
+   margin: "auto";
+   margin-top: "2rem"
+}

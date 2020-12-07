@@ -8,7 +8,7 @@ const EmployeeTable = (props) => {
     return (
       <div className="App">
              <div className="card">
-               <img className="card-img-top" src={image} alt="Card image cap"/>
+               <img className="card-img-top" src={image} style={{width: "15rem", height: "15rem", display: "block", margin: "auto", marginTop: "2rem"}}/>
                <div className="card-body">
                <h5 className="card-title"> {`${title} ${first} ${last}`} </h5>
                <p class="card-text">This is {`${first}`}'s employee card, they are an engineer at prestige worldwide</p>
