@@ -27,15 +27,16 @@ function App() {
 
   };
 
-let allUsers = users
 
-if (filteredUsers != null) {
-  allUsers = users.filter((user) => {
-    return (user.name.title + " " + user.name.first + " " + user.name.last).indexOf(filteredUsers) >= 0;
-  });
-  console.log()
-}
+  let allUsers = users
 
+  if (filteredUsers != null) {
+    allUsers = users.filter((user) => {
+      return (user.name.title + " " + user.name.first + " " + user.name.last).indexOf(filteredUsers) >= 0;
+    });
+    console.log()
+  }
+  
 if (sortByLastName === true) {
   allUsers = allUsers.sort((a,b) => {
     console.log(a,b)
@@ -47,6 +48,8 @@ if (sortByTitle === true) {
     console.log(a,b)
     return (a.name.title> b.name.title) ? 1 : ((b.name.title > a.name.title) ? -1 : 0)}); 
 }
+
+
   return (
     <div className="App">
       <Nav />

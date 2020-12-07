@@ -1,67 +1,45 @@
-import React, { useState, useEffect } from "react";
-import { Card, Button, CardGroup } from "react-bootstrap";
+import React from "react";
 import "./style.css";
+import { CardGroup, Card, Button } from "react-bootstrap";
 
 const EmployeeTable = (props) => {
-  const [users, setUsers] = useState([]);
-
-  // useEffect(() => {
-  //   axios.get(`https://randomuser.me/api/?results=20`).then((response) => {
-  //     setUsers(response.data.results);
-  //   });
-  // }, []);
-
-  const Tile = ({ first, last, title, location, phone }) => {
+  const Card = ({ first, last, title, image}) => {
+    console.log(image)
     return (
       <div className="App">
-        <h1>{`${title} ${first} ${last}`}</h1>
-      </div>
+             <div className="card">
+               <img className="card-img-top" src={image} alt="Card image cap"/>
+               <div className="card-body">
+               <h5 className="card-title"> {`${title} ${first} ${last}`} </h5>
+               <p class="card-text">This is {`${first}`}'s employee card, they are an engineer at prestige worldwide</p>
+              </div>
+            </div>
+            </div>
     );
   };
 
-  console.log(props);
   const userMap = props.users.map(function (el, index) {
-    return (
-      <CardGroup
-        style={{
-          marginTop: "1rem",
-        }}
-        key={index}
-        image={el.picture.large}
-        first={el.name.first}
-        last={el.name.last}
-        title={el.name.title}
-      >
-        <Card>
-          <Card.Img
-            variant="top"
-            src={el.picture.large}
-            style={{
-              width: "15rem",
-              height: "15rem",
-              display: "block",
-              margin: "auto",
-              marginTop: "2rem",
-            }}
-          />
-          <Card.Body>
-            <Card.Title>
-              {el.name.title} {el.name.first} {el.name.last}
-            </Card.Title>
-            <Card.Text>
-              This is {el.name.first}'s employee card, they are are engineer at
-              Prestige Worldwide.
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-      </CardGroup>
-    );
-  });
+    return (<Card
+      key={index}
+      // image={el.picture.large}
+      first={el.name.first}
+      last={el.name.last}
+      title={el.name.title}
+      image={el.picture.large}>
+         <Card.Img variant="top" image={el.picture.large} />
+      <Card.Body>
+    <Card.Title>{el.name.title} {el.name.first} {el.name.last} </Card.Title>
+        <Card.Text>
+    This is {el.name.last}'s employee card, they are an engineer at prestige worldwide
+        </Card.Text>
+      </Card.Body> 
+    </Card>)
+  })
 
-  return <div>{userMap}</div>;
+
+return <div>{userMap}</div>;
+
 };
-
-export default EmployeeTable;
+  
+  export default EmployeeTable;
+  

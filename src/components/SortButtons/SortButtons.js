@@ -6,14 +6,6 @@ import { Button } from "react-bootstrap";
 
 
 const SortButtons = (props) => {
-    // const [users, setUsers] = useState([]);
-    // console.log(props)
-    // const sortedNames = props.sort()
-    // console.log(sortedNames)
-    // const sortNames = useBoolean(false)
-    // const sorted = props.users.sort((a, b) => {}
-        // return b.props.user.name.last - a.props.user.name.last;
-    //   ); 
 
 return(
     <div>
@@ -24,11 +16,6 @@ return(
 <Button variant="success" onClick={()=>{
         props.setSortByTitle(true)
     }} > Sort by title </Button>
-
-    <div>
-
-    </div>
-
     </div>
     );
 }
