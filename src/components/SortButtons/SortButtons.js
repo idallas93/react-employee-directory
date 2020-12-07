@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.css";
+import { Button } from "react-bootstrap";
+
 // import { useBoolean } from "react-hanger"
 
 
@@ -15,13 +17,15 @@ const SortButtons = (props) => {
 
 return(
     <div>
-    <button type="button" onClick={()=>{
+    <Button variant="success" onClick={()=>{
         props.setSortByLastName(true)
-    }} > Sort by last name </button>
-    <button type="button" onClick={()=>{
+    }} > Sort by last name </Button>
+
+<Button variant="success" onClick={()=>{
         props.setSortByTitle(true)
-    }}> Sort by title </button>
-    <div className="response">
+    }} > Sort by title </Button>
+
+    <div>
 
     </div>
 
